@@ -1,128 +1,722 @@
+```html
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
 <title>KPVP - कांटा परगना विकास परिषद</title>
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet"
+href="css/style.css">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
+
 <body>
+
+
+<!-- ================================
+     HEADER
+================================ -->
 
 <header>
 
 <div class="logo-section">
-<img src="images/logo.png" class="logo">
+
+<img src="images/logo.png"
+class="logo">
+
 <div>
+
 <h1>कांटा परगना विकास परिषद</h1>
+
 <p>एकता • शिक्षा • प्रगति</p>
-</div>
+
 </div>
 
+</div>
+
+
 <nav>
+
 <ul>
-<li><a href="#">Home</a></li>
-<li><a href="#">About</a></li>
-<li><a href=member-registration.html>Member Registration</a></li>
-<li><a href="#">Pratibha Samman</a></li>
-<li><a href="#">Gallery</a></li>
-<li><a href="#">Downloads</a></li>
-<li><a href="#">Contact</a></li>
-<li><a href=admin.html>Admin Login</a></li>
+
+<li>
+<a href="#">Home</a>
+</li>
+
+<li>
+<a href="#">About</a>
+</li>
+
+<li>
+<a href="member-registration.html">
+Member Registration
+</a>
+</li>
+
+<li>
+<a href="#">
+Pratibha Samman
+</a>
+</li>
+
+<li>
+<a href="#">
+Gallery
+</a>
+</li>
+
+<li>
+<a href="#">
+Downloads
+</a>
+</li>
+
+<li>
+<a href="#">
+Contact
+</a>
+</li>
+
+<li>
+<a href="admin.html">
+Admin Login
+</a>
+</li>
+
 </ul>
+
 </nav>
 
 </header>
 
-<!-- Hero Slider -->
+
+
+<!-- ================================
+     HERO / GOOGLE DRIVE SLIDER
+================================ -->
 
 <section class="hero">
 
-<div class="slider">
 
-<img src="images/slider1.jpg" class="slide active">
+<div class="kpvp-slider">
 
-<img src="images/slider2.jpg" class="slide">
 
-<img src="images/slider3.jpg" class="slide">
+<!-- Dynamic Photos -->
+
+<div id="sliderContainer"
+class="slider-container">
+
+<div class="slider-loading">
+
+Photos loading...
 
 </div>
 
+</div>
+
+
+<!-- Previous -->
+
+<button
+class="slider-btn prev"
+onclick="previousSlide()">
+
+❮
+
+</button>
+
+
+<!-- Next -->
+
+<button
+class="slider-btn next"
+onclick="nextSlide()">
+
+❯
+
+</button>
+
+
+<!-- Dots -->
+
+<div
+id="sliderDots"
+class="slider-dots">
+
+</div>
+
+
+</div>
+
+
+
+<!-- HERO TEXT -->
+
 <div class="hero-text">
 
-<h2>कांटा परगना विकास परिषद में आपका स्वागत है</h2>
+<h2>
+कांटा परगना विकास परिषद में आपका स्वागत है
+</h2>
 
 <p>
-शिक्षा, संगठन और सामाजिक विकास की दिशा में एक मजबूत कदम।
+
+शिक्षा, संगठन और सामाजिक विकास की दिशा में
+एक मजबूत कदम।
+
 </p>
 
-<a href=member-registration.html class="btn">
+
+<a href="member-registration.html"
+class="btn">
+
 सदस्य पंजीकरण
+
 </a>
 
 </div>
 
+
 </section>
 
-<!-- Counter -->
+
+
+<!-- ================================
+     COUNTER
+================================ -->
 
 <section class="counter">
 
+
 <div class="box">
+
 <h3>52</h3>
+
 <p>गांव</p>
+
 </div>
 
+
 <div class="box">
+
 <h3>1000+</h3>
+
 <p>सदस्य</p>
+
 </div>
 
+
 <div class="box">
+
 <h3>500+</h3>
+
 <p>प्रतिभाएं सम्मानित</p>
+
 </div>
 
+
 <div class="box">
+
 <h3>50+</h3>
+
 <p>खेल उपलब्धियां</p>
+
 </div>
+
 
 </section>
 
-<!-- Quote -->
+
+
+<!-- ================================
+     QUOTE
+================================ -->
 
 <section class="quote">
 
-<h2>आज का प्रेरक विचार</h2>
+<h2>
+आज का प्रेरक विचार
+</h2>
+
 
 <p id="dailyQuote">
+
 शिक्षा ही समाज की सबसे बड़ी शक्ति है।
+
 </p>
 
 </section>
 
-<!-- Footer -->
+
+
+<!-- ================================
+     FOOTER
+================================ -->
 
 <footer>
 
 <p>
-© 2026 KPVP | कांटा परगना विकास परिषद
+
+© 2026 KPVP |
+कांटा परगना विकास परिषद
+
 </p>
 
+
 <p>
+
 📞 9216082769 |
+
 📧 meenasamaj.kpvp@gmail.com
+
 </p>
 
 </footer>
 
-<script src="js/slider.js"></script>
+
+
+<!-- ================================
+     GOOGLE DRIVE SLIDER SCRIPT
+================================ -->
+
+<script>
+
+
+/* =================================
+   GOOGLE APPS SCRIPT API
+================================ */
+
+const SLIDER_API =
+
+"https://script.google.com/macros/s/AKfycbzrYvpNB9dtXIwyrnmKOUTa6BARwG9XUK06_rWebUxw75oMuVy5i51fLtqhIPn7jfzYTg/exec";
+
+
+
+let sliderPhotos = [];
+
+let currentSlide = 0;
+
+let sliderTimer;
+
+
+
+/* =================================
+   LOAD PHOTOS
+================================ */
+
+async function loadSliderPhotos() {
+
+
+const container =
+
+document.getElementById(
+"sliderContainer"
+);
+
+
+try {
+
+
+const response =
+
+await fetch(
+
+SLIDER_API +
+"?action=list"
+
+);
+
+
+const data =
+
+await response.json();
+
+
+
+if (
+
+!data.success ||
+
+!data.photos ||
+
+!data.photos.length
+
+) {
+
+
+container.innerHTML = `
+
+<div class="slider-loading">
+
+No photos available
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+
+sliderPhotos =
+
+data.photos;
+
+
+
+createSlider();
+
+
+
+}
+
+catch(error) {
+
+
+console.error(
+"Slider Error:",
+error
+);
+
+
+container.innerHTML = `
+
+<div class="slider-loading">
+
+Photos load नहीं हो पाईं
+
+</div>
+
+`;
+
+}
+
+}
+
+
+
+/* =================================
+   CREATE SLIDER
+================================ */
+
+function createSlider() {
+
+
+const container =
+
+document.getElementById(
+"sliderContainer"
+);
+
+
+const dots =
+
+document.getElementById(
+"sliderDots"
+);
+
+
+container.innerHTML = "";
+
+dots.innerHTML = "";
+
+
+
+sliderPhotos.forEach(
+
+function(photo,index) {
+
+
+const slide =
+
+document.createElement(
+"div"
+);
+
+
+slide.className =
+"slider-slide";
+
+
+
+if(index === 0) {
+
+slide.classList.add(
+"active"
+);
+
+}
+
+
+
+const img =
+
+document.createElement(
+"img"
+);
+
+
+img.src =
+
+photo.url;
+
+
+img.alt =
+
+photo.name;
+
+
+
+slide.appendChild(img);
+
+
+container.appendChild(slide);
+
+
+
+/* DOT */
+
+const dot =
+
+document.createElement(
+"button"
+);
+
+
+dot.className =
+"slider-dot";
+
+
+if(index === 0) {
+
+dot.classList.add(
+"active"
+);
+
+}
+
+
+dot.onclick =
+
+function() {
+
+goToSlide(index);
+
+};
+
+
+dots.appendChild(dot);
+
+
+}
+
+);
+
+
+
+startAutoSlide();
+
+}
+
+
+
+/* =================================
+   SHOW SLIDE
+================================ */
+
+function showSlide(index) {
+
+
+const slides =
+
+document.querySelectorAll(
+".slider-slide"
+);
+
+
+const dots =
+
+document.querySelectorAll(
+".slider-dot"
+);
+
+
+if(!slides.length)
+return;
+
+
+
+if(index >= slides.length) {
+
+currentSlide = 0;
+
+}
+
+else if(index < 0) {
+
+currentSlide =
+slides.length - 1;
+
+}
+
+else {
+
+currentSlide = index;
+
+}
+
+
+
+slides.forEach(
+
+function(slide,i) {
+
+slide.classList.toggle(
+
+"active",
+
+i === currentSlide
+
+);
+
+}
+
+);
+
+
+
+dots.forEach(
+
+function(dot,i) {
+
+dot.classList.toggle(
+
+"active",
+
+i === currentSlide
+
+);
+
+}
+
+);
+
+}
+
+
+
+/* =================================
+   NEXT
+================================ */
+
+function nextSlide() {
+
+showSlide(
+currentSlide + 1
+);
+
+restartAutoSlide();
+
+}
+
+
+
+/* =================================
+   PREVIOUS
+================================ */
+
+function previousSlide() {
+
+showSlide(
+currentSlide - 1
+);
+
+restartAutoSlide();
+
+}
+
+
+
+/* =================================
+   GO TO SLIDE
+================================ */
+
+function goToSlide(index) {
+
+showSlide(index);
+
+restartAutoSlide();
+
+}
+
+
+
+/* =================================
+   AUTO SLIDE
+================================ */
+
+function startAutoSlide() {
+
+
+clearInterval(
+sliderTimer
+);
+
+
+sliderTimer =
+
+setInterval(
+
+function() {
+
+showSlide(
+currentSlide + 1
+);
+
+},
+
+5000
+
+);
+
+}
+
+
+
+/* =================================
+   RESTART TIMER
+================================ */
+
+function restartAutoSlide() {
+
+startAutoSlide();
+
+}
+
+
+
+/* =================================
+   START
+================================ */
+
+loadSliderPhotos();
+
+
+</script>
+
 
 </body>
+
 </html>
+```
