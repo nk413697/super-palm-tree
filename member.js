@@ -39,9 +39,3 @@ fetch(scriptURL, {
 ```
 
 });
-
-
-
-
-
- ye code isko jaha add krna hai kro
