@@ -17,66 +17,385 @@
 
 <body>
 
+    <!-- ADMIN PANEL -->
+
     <div class="admin-panel">
 
-        <h1>KPVP Admin Panel</h1>
+        <div class="admin-header">
 
-        <p>
-            कांटा परगना विकास परिषद
-        </p>
+            <div>
+                <h1>KPVP Admin Panel</h1>
 
-        <hr>
+                <p>
+                    कांटा परगना विकास परिषद
+                </p>
+            </div>
 
-        <div class="admin-menu">
-
-            <button>
-                सदस्य प्रबंधन
-            </button>
-
-            <button>
-                प्रतिभा सम्मान आवेदन
-            </button>
-
-            <button>
-                प्रमाण पत्र
-            </button>
-
-            <button>
-                फोटो / Slider
-            </button>
-
-            <button>
-                वेबसाइट सामग्री
+            <button
+                onclick="logout()"
+                class="logout-btn">
+                Logout
             </button>
 
         </div>
 
-        <button
-            onclick="logout()"
-            class="logout-btn">
-            Logout
-        </button>
+
+        <!-- DASHBOARD -->
+
+        <div class="admin-cards">
+
+            <div class="admin-card">
+                <div class="card-icon">📸</div>
+                <h3>Slider Photos</h3>
+                <p id="photoCount">0 Photos</p>
+            </div>
+
+            <div class="admin-card">
+                <div class="card-icon">👥</div>
+                <h3>Members</h3>
+                <p>Coming Soon</p>
+            </div>
+
+            <div class="admin-card">
+                <div class="card-icon">🏆</div>
+                <h3>प्रतिभा सम्मान</h3>
+                <p>Coming Soon</p>
+            </div>
+
+            <div class="admin-card">
+                <div class="card-icon">📜</div>
+                <h3>Certificates</h3>
+                <p>Coming Soon</p>
+            </div>
+
+        </div>
+
+
+        <!-- PHOTO MANAGEMENT -->
+
+        <div class="admin-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>📸 Photo Management</h2>
+
+                    <p>
+                        Homepage Slider की photos यहाँ manage करें
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- UPLOAD BOX -->
+
+            <div class="upload-box">
+
+                <div class="upload-icon">
+                    📤
+                </div>
+
+                <h3>
+                    नई Photo Upload करें
+                </h3>
+
+                <p>
+                    JPG, JPEG या PNG फोटो चुनें
+                </p>
+
+                <input
+                    type="file"
+                    id="photoInput"
+                    accept="image/jpeg,image/png,image/jpg"
+                    multiple
+                >
+
+                <div id="previewContainer"
+                     class="preview-container">
+                </div>
+
+                <button
+                    onclick="uploadPhotos()"
+                    class="upload-btn">
+
+                    📤 Upload Photos
+
+                </button>
+
+                <p id="uploadMessage"
+                   class="upload-message">
+                </p>
+
+            </div>
+
+
+            <!-- PHOTO LIST -->
+
+            <div class="photo-list-section">
+
+                <h3>
+                    🖼️ Uploaded Photos
+                </h3>
+
+                <div
+                    id="photoGrid"
+                    class="photo-grid">
+
+                    <!-- Photos यहाँ आएंगी -->
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-    <script>
 
-        if (
-            sessionStorage.getItem("kpvpAdmin")
-            !== "loggedIn"
-        ) {
-            window.location.href = "admin.html";
+<script>
+
+/* ---------------------------------
+   LOGIN CHECK
+--------------------------------- */
+
+if (
+    sessionStorage.getItem("kpvpAdmin")
+    !== "loggedIn"
+) {
+
+    window.location.href = "admin.html";
+
+}
+
+
+/* ---------------------------------
+   LOGOUT
+--------------------------------- */
+
+function logout() {
+
+    sessionStorage.removeItem("kpvpAdmin");
+
+    window.location.href = "admin.html";
+
+}
+
+
+/* ---------------------------------
+   PHOTO PREVIEW
+--------------------------------- */
+
+const photoInput =
+    document.getElementById("photoInput");
+
+const previewContainer =
+    document.getElementById("previewContainer");
+
+
+photoInput.addEventListener(
+    "change",
+    function () {
+
+        previewContainer.innerHTML = "";
+
+        const files = this.files;
+
+        if (!files.length) return;
+
+
+        Array.from(files).forEach(
+            function (file) {
+
+                const reader =
+                    new FileReader();
+
+                reader.onload =
+                    function (e) {
+
+                        const div =
+                            document.createElement(
+                                "div"
+                            );
+
+                        div.className =
+                            "preview-item";
+
+
+                        const img =
+                            document.createElement(
+                                "img"
+                            );
+
+                        img.src =
+                            e.target.result;
+
+
+                        const name =
+                            document.createElement(
+                                "p"
+                            );
+
+                        name.innerText =
+                            file.name;
+
+
+                        div.appendChild(img);
+
+                        div.appendChild(name);
+
+                        previewContainer.appendChild(
+                            div
+                        );
+
+                    };
+
+                reader.readAsDataURL(file);
+
+            }
+        );
+
+    }
+);
+
+
+/* ---------------------------------
+   UPLOAD
+--------------------------------- */
+
+function uploadPhotos() {
+
+    const files =
+        photoInput.files;
+
+    const message =
+        document.getElementById(
+            "uploadMessage"
+        );
+
+
+    if (!files.length) {
+
+        message.innerText =
+            "⚠️ पहले photo select करें।";
+
+        return;
+
+    }
+
+
+    /*
+       अभी Demo Mode है।
+
+       अगले step में यहाँ
+       Google Drive / Apps Script
+       upload लगाया जाएगा।
+    */
+
+
+    message.innerText =
+        "⏳ Upload system अगले step में connect होगा।";
+
+}
+
+
+/* ---------------------------------
+   DEMO PHOTOS
+--------------------------------- */
+
+const demoPhotos = [
+
+    "images/slide1.jpg",
+    "images/slide2.jpg",
+    "images/slide3.jpg",
+    "images/slide4.jpg"
+
+];
+
+
+function showPhotos() {
+
+    const grid =
+        document.getElementById(
+            "photoGrid"
+        );
+
+    grid.innerHTML = "";
+
+
+    demoPhotos.forEach(
+        function (photo, index) {
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+            card.className =
+                "photo-card";
+
+
+            card.innerHTML = `
+
+                <img
+                    src="${photo}"
+                    alt="KPVP Photo"
+                >
+
+                <div class="photo-info">
+
+                    <span>
+                        Slide ${index + 1}
+                    </span>
+
+                    <button
+                        onclick="deletePhoto(${index})"
+                        class="delete-btn">
+
+                        🗑 Delete
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            grid.appendChild(card);
+
         }
+    );
 
-        function logout() {
 
-            sessionStorage.removeItem("kpvpAdmin");
+    document.getElementById(
+        "photoCount"
+    ).innerText =
+        demoPhotos.length + " Photos";
 
-            window.location.href =
-                "admin.html";
-        }
+}
 
-    </script>
+
+function deletePhoto(index) {
+
+    const confirmDelete =
+        confirm(
+            "क्या आप यह photo delete करना चाहते हैं?"
+        );
+
+
+    if (!confirmDelete) return;
+
+
+    alert(
+        "Photo Delete system अगले step में Google Drive से connect होगा।"
+    );
+
+}
+
+
+showPhotos();
+
+</script>
 
 </body>
 
