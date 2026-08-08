@@ -1,6 +1,5 @@
 const scriptURL =
-"https://script.google.com/macros/s/AKfycbx9bd_RMC9nFnqhvkbIO_ybYrvOxlNfzu39ilPM-QU18JSBa2m93c8wX4jFSgVtxxsYgA/exec";
-
+"https://script.google.com/macros/s/AKfycbzrVaqJF0tOmx3Z3B5Nd1f52-g6h1OinEhM2joHdKYhTN4NxHp9t8ptdHqFGxNh3yf8_g/exec";
 document
 .getElementById("memberForm")
 .addEventListener("submit", submitForm);
@@ -34,16 +33,11 @@ profession: document.getElementById("profession").value
 };
 
 fetch(scriptURL,{
-
 method:"POST",
-
 body: JSON.stringify(data)
-
 })
-
-.then(r => r.json())
-
-.then(res => {
+.then(response => response.json())
+.then(data => {
 
 alert(
 "Registration Successful\n\nReg No : " +
@@ -55,10 +49,14 @@ document
 .reset();
 
 })
+.catch(error => {
 
-.catch(err => {
-console.error(err);
-alert("Error: " + err);
+console.error(error);
+
+alert(
+"Submit Failed\n\nCheck Apps Script Deployment"
+);
+
 });
 
 }
