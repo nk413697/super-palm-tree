@@ -1,21 +1,28 @@
-```html
+
 <!DOCTYPE html>
 <html lang="hi">
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>KPVP - कांटा परगना विकास परिषद</title>
+    <title>KPVP - कांटा परगना विकास परिषद</title>
 
-<link rel="stylesheet"
-href="css/style.css">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Main CSS -->
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
 </head>
 
@@ -23,692 +30,920 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <body>
 
 
-<!-- ================================
+<!-- =====================================================
      HEADER
-================================ -->
+===================================================== -->
 
-<header>
-
-<div class="logo-section">
-
-<img src="images/logo.png"
-class="logo">
-
-<div>
-
-<h1>कांटा परगना विकास परिषद</h1>
-
-<p>एकता • शिक्षा • प्रगति</p>
-
-</div>
-
-</div>
+<header class="main-header">
 
 
-<nav>
+    <!-- LOGO -->
 
-<ul>
+    <div class="logo-section">
 
-<li>
-<a href="#">Home</a>
-</li>
+        <img src="images/logo.png"
+             class="logo"
+             alt="KPVP Logo">
 
-<li>
-<a href="#">About</a>
-</li>
 
-<li>
-<a href="member-registration.html">
-Member Registration
-</a>
-</li>
+        <div class="logo-text">
 
-<li>
-<a href="#">
-Pratibha Samman
-</a>
-</li>
+            <h1>
+                कांटा परगना विकास परिषद
+            </h1>
 
-<li>
-<a href="#">
-Gallery
-</a>
-</li>
+            <p>
+                एकता • शिक्षा • प्रगति
+            </p>
 
-<li>
-<a href="#">
-Downloads
-</a>
-</li>
+        </div>
 
-<li>
-<a href="#">
-Contact
-</a>
-</li>
+    </div>
 
-<li>
-<a href="admin.html">
-Admin Login
-</a>
-</li>
 
-</ul>
 
-</nav>
+    <!-- NAVIGATION -->
+
+    <nav class="main-nav">
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#">
+                    About
+                </a>
+            </li>
+
+
+            <li>
+                <a href="member-registration.html">
+                    Member Registration
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#">
+                    Pratibha Samman
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#">
+                    Gallery
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#">
+                    Downloads
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#">
+                    Contact
+                </a>
+            </li>
+
+
+            <li>
+                <a href="admin.html"
+                   class="admin-link">
+
+                    <i class="fa-solid fa-user-shield"></i>
+
+                    Admin
+
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
 
 </header>
 
 
 
-<!-- ================================
-     HERO / GOOGLE DRIVE SLIDER
-================================ -->
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
 
-<section class="hero">
-
-
-<div class="kpvp-slider">
+<section class="hero-section">
 
 
-<!-- Dynamic Photos -->
+    <!-- =================================================
+         PHOTO SLIDER
+    ================================================== -->
 
-<div id="sliderContainer"
-class="slider-container">
-
-<div class="slider-loading">
-
-Photos loading...
-
-</div>
-
-</div>
+    <div class="kpvp-slider">
 
 
-<!-- Previous -->
+        <!-- SLIDES -->
 
-<button
-class="slider-btn prev"
-onclick="previousSlide()">
+        <div id="sliderContainer"
+             class="slider-container">
 
-❮
+            <div class="slider-loading">
 
-</button>
+                <i class="fa-solid fa-spinner fa-spin"></i>
 
+                <span>
+                    Photos loading...
+                </span>
 
-<!-- Next -->
+            </div>
 
-<button
-class="slider-btn next"
-onclick="nextSlide()">
-
-❯
-
-</button>
-
-
-<!-- Dots -->
-
-<div
-id="sliderDots"
-class="slider-dots">
-
-</div>
-
-
-</div>
+        </div>
 
 
 
-<!-- HERO TEXT -->
+        <!-- DARK OVERLAY -->
 
-<div class="hero-text">
-
-<h2>
-कांटा परगना विकास परिषद में आपका स्वागत है
-</h2>
-
-<p>
-
-शिक्षा, संगठन और सामाजिक विकास की दिशा में
-एक मजबूत कदम।
-
-</p>
+        <div class="slider-overlay"></div>
 
 
-<a href="member-registration.html"
-class="btn">
 
-सदस्य पंजीकरण
+        <!-- =================================================
+             HERO TEXT
+        ================================================== -->
 
-</a>
+        <div class="hero-content">
 
-</div>
+            <span class="hero-small-title">
+                KANTA PARGANA VIKAS PARISHAD
+            </span>
 
+
+            <h2>
+                कांटा परगना विकास परिषद
+            </h2>
+
+
+            <p>
+                शिक्षा, संगठन और सामाजिक विकास की दिशा में
+                एक मजबूत कदम।
+            </p>
+
+
+            <a href="member-registration.html"
+               class="hero-btn">
+
+                <i class="fa-solid fa-user-plus"></i>
+
+                सदस्य पंजीकरण
+
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PREVIOUS BUTTON
+        ================================================== -->
+
+        <button class="slider-btn prev"
+                onclick="previousSlide()"
+                aria-label="Previous Photo">
+
+            <i class="fa-solid fa-chevron-left"></i>
+
+        </button>
+
+
+
+        <!-- =================================================
+             NEXT BUTTON
+        ================================================== -->
+
+        <button class="slider-btn next"
+                onclick="nextSlide()"
+                aria-label="Next Photo">
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </button>
+
+
+
+        <!-- =================================================
+             DOTS
+        ================================================== -->
+
+        <div id="sliderDots"
+             class="slider-dots">
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
 
-<!-- ================================
-     COUNTER
-================================ -->
+<!-- =====================================================
+     QUICK STATS
+===================================================== -->
 
-<section class="counter">
-
-
-<div class="box">
-
-<h3>52</h3>
-
-<p>गांव</p>
-
-</div>
+<section class="stats-section">
 
 
-<div class="box">
-
-<h3>1000+</h3>
-
-<p>सदस्य</p>
-
-</div>
+    <div class="stats-container">
 
 
-<div class="box">
+        <!-- 52 VILLAGES -->
 
-<h3>500+</h3>
+        <div class="stat-box">
 
-<p>प्रतिभाएं सम्मानित</p>
+            <div class="stat-icon">
 
-</div>
+                <i class="fa-solid fa-house-chimney"></i>
+
+            </div>
 
 
-<div class="box">
+            <div>
 
-<h3>50+</h3>
+                <h3>
+                    52
+                </h3>
 
-<p>खेल उपलब्धियां</p>
+                <p>
+                    गांव
+                </p>
 
-</div>
+            </div>
 
+        </div>
+
+
+
+        <!-- MEMBERS -->
+
+        <div class="stat-box">
+
+            <div class="stat-icon">
+
+                <i class="fa-solid fa-users"></i>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    1000+
+                </h3>
+
+                <p>
+                    सदस्य
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- AWARDS -->
+
+        <div class="stat-box">
+
+            <div class="stat-icon">
+
+                <i class="fa-solid fa-trophy"></i>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    500+
+                </h3>
+
+                <p>
+                    प्रतिभाएं सम्मानित
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SPORTS -->
+
+        <div class="stat-box">
+
+            <div class="stat-icon">
+
+                <i class="fa-solid fa-medal"></i>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    50+
+                </h3>
+
+                <p>
+                    खेल उपलब्धियां
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
 
-<!-- ================================
-     QUOTE
-================================ -->
+<!-- =====================================================
+     DAILY QUOTE
+===================================================== -->
 
-<section class="quote">
-
-<h2>
-आज का प्रेरक विचार
-</h2>
+<section class="quote-section">
 
 
-<p id="dailyQuote">
+    <div class="quote-container">
 
-शिक्षा ही समाज की सबसे बड़ी शक्ति है।
 
-</p>
+        <div class="quote-icon">
+
+            <i class="fa-solid fa-quote-left"></i>
+
+        </div>
+
+
+        <h2>
+            आज का प्रेरक विचार
+        </h2>
+
+
+        <p id="dailyQuote">
+
+            शिक्षा ही समाज की सबसे बड़ी शक्ति है।
+
+        </p>
+
+
+        <div class="quote-line"></div>
+
+
+    </div>
 
 </section>
 
 
 
-<!-- ================================
+<!-- =====================================================
      FOOTER
-================================ -->
+===================================================== -->
 
-<footer>
-
-<p>
-
-© 2026 KPVP |
-कांटा परगना विकास परिषद
-
-</p>
+<footer class="main-footer">
 
 
-<p>
+    <div class="footer-content">
 
-📞 9216082769 |
 
-📧 meenasamaj.kpvp@gmail.com
+        <div>
 
-</p>
+            <h3>
+                कांटा परगना विकास परिषद
+            </h3>
+
+            <p>
+                एकता • शिक्षा • प्रगति
+            </p>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <p>
+
+                <i class="fa-solid fa-phone"></i>
+
+                9216082769
+
+            </p>
+
+
+            <p>
+
+                <i class="fa-solid fa-envelope"></i>
+
+                meenasamaj.kpvp@gmail.com
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 KPVP | कांटा परगना विकास परिषद
+
+    </div>
+
 
 </footer>
 
 
 
-<!-- ================================
-     GOOGLE DRIVE SLIDER SCRIPT
-================================ -->
+<!-- =====================================================
+     GOOGLE DRIVE SLIDER JAVASCRIPT
+===================================================== -->
 
 <script>
 
 
-/* =================================
+/* =====================================================
    GOOGLE APPS SCRIPT API
-================================ */
+===================================================== */
 
 const SLIDER_API =
-
 "https://script.google.com/macros/s/AKfycbzrYvpNB9dtXIwyrnmKOUTa6BARwG9XUK06_rWebUxw75oMuVy5i51fLtqhIPn7jfzYTg/exec";
 
 
+
+/* =====================================================
+   VARIABLES
+===================================================== */
 
 let sliderPhotos = [];
 
 let currentSlide = 0;
 
-let sliderTimer;
+let sliderTimer = null;
 
 
 
-/* =================================
+/* =====================================================
    LOAD PHOTOS
-================================ */
+===================================================== */
 
 async function loadSliderPhotos() {
 
 
-const container =
-
-document.getElementById(
-"sliderContainer"
-);
-
-
-try {
+    const container =
+        document.getElementById(
+            "sliderContainer"
+        );
 
 
-const response =
-
-await fetch(
-
-SLIDER_API +
-"?action=list"
-
-);
+    try {
 
 
-const data =
-
-await response.json();
-
-
-
-if (
-
-!data.success ||
-
-!data.photos ||
-
-!data.photos.length
-
-) {
+        const response =
+            await fetch(
+                SLIDER_API +
+                "?action=list"
+            );
 
 
-container.innerHTML = `
+        if (!response.ok) {
 
-<div class="slider-loading">
+            throw new Error(
+                "API Error: " +
+                response.status
+            );
 
-No photos available
+        }
 
-</div>
 
-`;
+        const data =
+            await response.json();
 
-return;
+
+        console.log(
+            "KPVP Photos:",
+            data
+        );
+
+
+
+        if (
+            !data.success ||
+            !data.photos ||
+            data.photos.length === 0
+        ) {
+
+
+            container.innerHTML = `
+
+                <div class="slider-loading">
+
+                    <i class="fa-regular fa-image"></i>
+
+                    <span>
+                        अभी कोई फोटो उपलब्ध नहीं है।
+                    </span>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+
+        sliderPhotos =
+            data.photos;
+
+
+        createSlider();
+
+
+    }
+
+
+    catch(error) {
+
+
+        console.error(
+            "KPVP Slider Error:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="slider-loading">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <span>
+                    Photos load नहीं हो पाईं
+                </span>
+
+            </div>
+
+        `;
+
+    }
 
 }
 
 
 
-sliderPhotos =
-
-data.photos;
-
-
-
-createSlider();
-
-
-
-}
-
-catch(error) {
-
-
-console.error(
-"Slider Error:",
-error
-);
-
-
-container.innerHTML = `
-
-<div class="slider-loading">
-
-Photos load नहीं हो पाईं
-
-</div>
-
-`;
-
-}
-
-}
-
-
-
-/* =================================
+/* =====================================================
    CREATE SLIDER
-================================ */
+===================================================== */
 
 function createSlider() {
 
 
-const container =
-
-document.getElementById(
-"sliderContainer"
-);
-
-
-const dots =
-
-document.getElementById(
-"sliderDots"
-);
+    const container =
+        document.getElementById(
+            "sliderContainer"
+        );
 
 
-container.innerHTML = "";
+    const dots =
+        document.getElementById(
+            "sliderDots"
+        );
 
-dots.innerHTML = "";
+
+    container.innerHTML = "";
+
+    dots.innerHTML = "";
 
 
 
-sliderPhotos.forEach(
-
-function(photo,index) {
-
-
-const slide =
-
-document.createElement(
-"div"
-);
+    sliderPhotos.forEach(
+        function(photo, index) {
 
 
-slide.className =
-"slider-slide";
+            /* CREATE SLIDE */
+
+            const slide =
+                document.createElement(
+                    "div"
+                );
+
+
+            slide.className =
+                "slider-slide";
+
+
+            if (index === 0) {
+
+                slide.classList.add(
+                    "active"
+                );
+
+            }
 
 
 
-if(index === 0) {
+            /* IMAGE */
 
-slide.classList.add(
-"active"
-);
+            const img =
+                document.createElement(
+                    "img"
+                );
+
+
+            img.src =
+                photo.url;
+
+
+            img.alt =
+                photo.name ||
+                "KPVP Photo";
+
+
+            img.loading =
+                index === 0
+                ? "eager"
+                : "lazy";
+
+
+
+            slide.appendChild(
+                img
+            );
+
+
+            container.appendChild(
+                slide
+            );
+
+
+
+            /* DOT */
+
+            const dot =
+                document.createElement(
+                    "button"
+                );
+
+
+            dot.className =
+                "slider-dot";
+
+
+            if (index === 0) {
+
+                dot.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            dot.setAttribute(
+                "aria-label",
+                "Photo " +
+                (index + 1)
+            );
+
+
+            dot.onclick =
+                function() {
+
+                    goToSlide(
+                        index
+                    );
+
+                };
+
+
+            dots.appendChild(
+                dot
+            );
+
+
+        }
+    );
+
+
+
+    /* START AUTO SLIDE */
+
+    startAutoSlide();
 
 }
 
 
 
-const img =
-
-document.createElement(
-"img"
-);
-
-
-img.src =
-
-photo.url;
-
-
-img.alt =
-
-photo.name;
-
-
-
-slide.appendChild(img);
-
-
-container.appendChild(slide);
-
-
-
-/* DOT */
-
-const dot =
-
-document.createElement(
-"button"
-);
-
-
-dot.className =
-"slider-dot";
-
-
-if(index === 0) {
-
-dot.classList.add(
-"active"
-);
-
-}
-
-
-dot.onclick =
-
-function() {
-
-goToSlide(index);
-
-};
-
-
-dots.appendChild(dot);
-
-
-}
-
-);
-
-
-
-startAutoSlide();
-
-}
-
-
-
-/* =================================
+/* =====================================================
    SHOW SLIDE
-================================ */
+===================================================== */
 
 function showSlide(index) {
 
 
-const slides =
-
-document.querySelectorAll(
-".slider-slide"
-);
-
-
-const dots =
-
-document.querySelectorAll(
-".slider-dot"
-);
+    const slides =
+        document.querySelectorAll(
+            ".slider-slide"
+        );
 
 
-if(!slides.length)
-return;
+    const dots =
+        document.querySelectorAll(
+            ".slider-dot"
+        );
+
+
+    if (!slides.length) {
+
+        return;
+
+    }
 
 
 
-if(index >= slides.length) {
+    /* LOOP */
 
-currentSlide = 0;
+    if (
+        index >=
+        slides.length
+    ) {
+
+        currentSlide = 0;
+
+    }
+
+
+    else if (
+        index < 0
+    ) {
+
+        currentSlide =
+            slides.length - 1;
+
+    }
+
+
+    else {
+
+        currentSlide =
+            index;
+
+    }
+
+
+
+    /* SLIDES */
+
+    slides.forEach(
+        function(slide, i) {
+
+            slide.classList.toggle(
+                "active",
+                i === currentSlide
+            );
+
+        }
+    );
+
+
+
+    /* DOTS */
+
+    dots.forEach(
+        function(dot, i) {
+
+            dot.classList.toggle(
+                "active",
+                i === currentSlide
+            );
+
+        }
+    );
 
 }
 
-else if(index < 0) {
-
-currentSlide =
-slides.length - 1;
-
-}
-
-else {
-
-currentSlide = index;
-
-}
 
 
-
-slides.forEach(
-
-function(slide,i) {
-
-slide.classList.toggle(
-
-"active",
-
-i === currentSlide
-
-);
-
-}
-
-);
-
-
-
-dots.forEach(
-
-function(dot,i) {
-
-dot.classList.toggle(
-
-"active",
-
-i === currentSlide
-
-);
-
-}
-
-);
-
-}
-
-
-
-/* =================================
+/* =====================================================
    NEXT
-================================ */
+===================================================== */
 
 function nextSlide() {
 
-showSlide(
-currentSlide + 1
-);
 
-restartAutoSlide();
+    showSlide(
+        currentSlide + 1
+    );
+
+
+    restartAutoSlide();
 
 }
 
 
 
-/* =================================
+/* =====================================================
    PREVIOUS
-================================ */
+===================================================== */
 
 function previousSlide() {
 
-showSlide(
-currentSlide - 1
-);
 
-restartAutoSlide();
+    showSlide(
+        currentSlide - 1
+    );
+
+
+    restartAutoSlide();
 
 }
 
 
 
-/* =================================
+/* =====================================================
    GO TO SLIDE
-================================ */
+===================================================== */
 
 function goToSlide(index) {
 
-showSlide(index);
 
-restartAutoSlide();
+    showSlide(index);
+
+
+    restartAutoSlide();
 
 }
 
 
 
-/* =================================
+/* =====================================================
    AUTO SLIDE
-================================ */
+===================================================== */
 
 function startAutoSlide() {
 
 
-clearInterval(
-sliderTimer
-);
+    clearInterval(
+        sliderTimer
+    );
 
 
-sliderTimer =
+    /*
+       5 seconds per photo
+    */
 
-setInterval(
+    sliderTimer =
+        setInterval(
+            function() {
 
-function() {
+                showSlide(
+                    currentSlide + 1
+                );
 
-showSlide(
-currentSlide + 1
-);
-
-},
-
-5000
-
-);
+            },
+            5000
+        );
 
 }
 
 
 
-/* =================================
+/* =====================================================
    RESTART TIMER
-================================ */
+===================================================== */
 
 function restartAutoSlide() {
 
-startAutoSlide();
+    startAutoSlide();
 
 }
 
 
 
-/* =================================
+/* =====================================================
    START
-================================ */
+===================================================== */
 
 loadSliderPhotos();
 
