@@ -1,158 +1,170 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Noto Sans Devanagari',sans-serif;
+.photo-slider {
+    width: 100%;
+    padding: 20px 0;
+    background: #f5f7fa;
 }
 
-body{
-background:#f5f7fb;
+.slider-container {
+    position: relative;
+    width: 94%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.18);
 }
 
-header{
-background:#0D47A1;
-color:white;
-padding:15px 5%;
-display:flex;
-justify-content:space-between;
-align-items:center;
+.slide-track {
+    display: flex;
+    transition: transform 0.7s ease-in-out;
 }
 
-.logo-section{
-display:flex;
-align-items:center;
-gap:15px;
+.slide {
+    min-width: 100%;
+    aspect-ratio: 16 / 7;
 }
 
-.logo{
-height:80px;
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-nav ul{
-display:flex;
-list-style:none;
-gap:20px;
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 5;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-font-weight:600;
+.slider-btn:hover {
+    background: rgba(0,0,0,0.8);
 }
 
-.hero{
-position:relative;
-height:80vh;
-overflow:hidden;
+.slider-btn.prev {
+    left: 15px;
 }
 
-.slider{
-width:100%;
-height:100%;
+.slider-btn.next {
+    right: 15px;
 }
 
-.slide{
-position:absolute;
-width:100%;
-height:100%;
-object-fit:cover;
-opacity:0;
-transition:1s;
+.slider-dots {
+    text-align: center;
+    margin-top: 12px;
 }
 
-.slide.active{
-opacity:1;
+.slider-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: #bbb;
+    cursor: pointer;
 }
 
-.hero-text{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:rgba(0,0,0,.5);
-padding:30px;
-color:white;
-text-align:center;
-border-radius:10px;
+.slider-dot.active {
+    background: #1976d2;
 }
 
-.btn{
-display:inline-block;
-margin-top:20px;
-background:#FFD700;
-color:black;
-padding:12px 25px;
-text-decoration:none;
-font-weight:bold;
-border-radius:5px;
+.admin-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
 }
 
-.counter{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
-padding:50px;
+.admin-box {
+    width: 90%;
+    max-width: 420px;
+    padding: 35px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    text-align: center;
 }
 
-.box{
-background:white;
-padding:30px;
-text-align:center;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,.1);
+.admin-box h1 {
+    margin-bottom: 5px;
 }
 
-.box h3{
-font-size:35px;
-color:#0D47A1;
+.admin-box p {
+    color: #666;
 }
 
-.quote{
-padding:50px;
-text-align:center;
+.admin-box input {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
 }
 
-.quote h2{
-color:#0D47A1;
-margin-bottom:20px;
+.admin-box button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #1976d2;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-footer{
-background:#0D47A1;
-color:white;
-padding:20px;
-text-align:center;
+.admin-box button:hover {
+    background: #125ca3;
 }
 
-.form-container{
-max-width:700px;
-margin:40px auto;
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 0 15px rgba(0,0,0,.1);
+#loginMessage {
+    color: red;
+    margin-top: 15px;
 }
 
-.form-container h2{
-text-align:center;
-margin-bottom:20px;
-color:#0D47A1;
+.admin-panel {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
 }
 
-form input{
-width:100%;
-padding:12px;
-margin-bottom:15px;
-border:1px solid #ccc;
-border-radius:5px;
+.admin-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
 }
 
-form button{
-width:100%;
-padding:12px;
-background:#0D47A1;
-color:white;
-border:none;
-border-radius:5px;
-cursor:pointer;
+.admin-menu button {
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background: #1976d2;
+    color: white;
+    cursor: pointer;
+}
+
+.logout-btn {
+    margin-top: 30px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #d32f2f;
+    color: white;
+    cursor: pointer;
 }
