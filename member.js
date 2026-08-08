@@ -1,4 +1,3 @@
-
 const scriptURL =
 "https://script.google.com/macros/s/AKfycbzrVaqJF0tOmx3Z3B5Nd1f52-g6h1OinEhM2joHdKYhTN4NxHp9t8ptdHqFGxNh3yf8_g/exec";
 
@@ -27,12 +26,23 @@ form.addEventListener("submit", function (e) {
     })
     .then(response => response.text())
     .then(result => {
+
         console.log(result);
-        alert("Registration Successful");
+
+        alert(
+            "Registration Successful\n\n" +
+            "Reg No: " + data.regno
+        );
+
+        form.reset();
+
     })
     .catch(error => {
+
         console.error(error);
+
         alert("Error: " + error);
+
     });
 
 });
