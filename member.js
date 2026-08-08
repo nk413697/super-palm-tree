@@ -1,4 +1,3 @@
-alert("member.js loaded");
 
 const scriptURL =
 "https://script.google.com/macros/s/AKfycbzrVaqJF0tOmx3Z3B5Nd1f52-g6h1OinEhM2joHdKYhTN4NxHp9t8ptdHqFGxNh3yf8_g/exec";
