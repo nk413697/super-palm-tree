@@ -10,141 +10,163 @@
 
     <title>KPVP Admin Panel</title>
 
-    <link rel="stylesheet"
-          href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-    <!-- ADMIN PANEL -->
+<div class="admin-panel">
 
-    <div class="admin-panel">
+    <!-- HEADER -->
 
-        <div class="admin-header">
+    <div class="admin-header">
 
-            <div>
-                <h1>KPVP Admin Panel</h1>
+        <div>
+            <h1>KPVP Admin Panel</h1>
+            <p>कांटा परगना विकास परिषद</p>
+        </div>
 
-                <p>
-                    कांटा परगना विकास परिषद
-                </p>
+        <button
+            onclick="logout()"
+            class="logout-btn">
+            Logout
+        </button>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+
+    <div class="admin-cards">
+
+        <div class="admin-card">
+
+            <div class="card-icon">📸</div>
+
+            <h3>Slider Photos</h3>
+
+            <p id="photoCount">
+                Loading...
+            </p>
+
+        </div>
+
+
+        <div class="admin-card">
+
+            <div class="card-icon">👥</div>
+
+            <h3>Members</h3>
+
+            <p>Coming Soon</p>
+
+        </div>
+
+
+        <div class="admin-card">
+
+            <div class="card-icon">🏆</div>
+
+            <h3>प्रतिभा सम्मान</h3>
+
+            <p>Coming Soon</p>
+
+        </div>
+
+
+        <div class="admin-card">
+
+            <div class="card-icon">📜</div>
+
+            <h3>Certificates</h3>
+
+            <p>Coming Soon</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PHOTO MANAGEMENT -->
+
+    <div class="admin-section">
+
+        <h2>📸 Photo Management</h2>
+
+        <p>
+            Homepage Slider की photos यहाँ manage करें।
+        </p>
+
+
+        <!-- UPLOAD -->
+
+        <div class="upload-box">
+
+            <div class="upload-icon">
+                📤
+            </div>
+
+            <h3>
+                नई Photo Upload करें
+            </h3>
+
+            <p>
+                JPG, JPEG या PNG
+            </p>
+
+            <input
+                type="file"
+                id="photoInput"
+                accept="image/jpeg,image/png,image/jpg"
+                multiple
+            >
+
+            <div
+                id="previewContainer"
+                class="preview-container">
             </div>
 
             <button
-                onclick="logout()"
-                class="logout-btn">
-                Logout
+                onclick="uploadPhotos()"
+                class="upload-btn">
+
+                📤 Upload Photos
+
             </button>
 
-        </div>
-
-
-        <!-- DASHBOARD -->
-
-        <div class="admin-cards">
-
-            <div class="admin-card">
-                <div class="card-icon">📸</div>
-                <h3>Slider Photos</h3>
-                <p id="photoCount">0 Photos</p>
-            </div>
-
-            <div class="admin-card">
-                <div class="card-icon">👥</div>
-                <h3>Members</h3>
-                <p>Coming Soon</p>
-            </div>
-
-            <div class="admin-card">
-                <div class="card-icon">🏆</div>
-                <h3>प्रतिभा सम्मान</h3>
-                <p>Coming Soon</p>
-            </div>
-
-            <div class="admin-card">
-                <div class="card-icon">📜</div>
-                <h3>Certificates</h3>
-                <p>Coming Soon</p>
-            </div>
+            <p
+                id="uploadMessage"
+                class="upload-message">
+            </p>
 
         </div>
 
 
-        <!-- PHOTO MANAGEMENT -->
+        <!-- PHOTOS -->
 
-        <div class="admin-section">
+        <div class="photo-list-section">
 
-            <div class="section-heading">
-
-                <div>
-                    <h2>📸 Photo Management</h2>
-
-                    <p>
-                        Homepage Slider की photos यहाँ manage करें
-                    </p>
-                </div>
-
-            </div>
-
-
-            <!-- UPLOAD BOX -->
-
-            <div class="upload-box">
-
-                <div class="upload-icon">
-                    📤
-                </div>
-
-                <h3>
-                    नई Photo Upload करें
-                </h3>
-
-                <p>
-                    JPG, JPEG या PNG फोटो चुनें
-                </p>
-
-                <input
-                    type="file"
-                    id="photoInput"
-                    accept="image/jpeg,image/png,image/jpg"
-                    multiple
-                >
-
-                <div id="previewContainer"
-                     class="preview-container">
-                </div>
-
-                <button
-                    onclick="uploadPhotos()"
-                    class="upload-btn">
-
-                    📤 Upload Photos
-
-                </button>
-
-                <p id="uploadMessage"
-                   class="upload-message">
-                </p>
-
-            </div>
-
-
-            <!-- PHOTO LIST -->
-
-            <div class="photo-list-section">
+            <div class="photo-title-row">
 
                 <h3>
                     🖼️ Uploaded Photos
                 </h3>
 
-                <div
-                    id="photoGrid"
-                    class="photo-grid">
+                <button
+                    onclick="loadPhotos()"
+                    class="refresh-btn">
 
-                    <!-- Photos यहाँ आएंगी -->
+                    🔄 Refresh
 
-                </div>
+                </button>
+
+            </div>
+
+
+            <div
+                id="photoGrid"
+                class="photo-grid">
 
             </div>
 
@@ -152,66 +174,81 @@
 
     </div>
 
+</div>
+
 
 <script>
 
-/* ---------------------------------
+/* ==========================================
+   GOOGLE APPS SCRIPT URL
+========================================== */
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzrYvpNB9dtXIwyrnmKOUTa6BARwG9XUK06_rWebUxw75oMuVy5i51fLtqhIPn7jfzYTg/exec";
+
+
+/* ==========================================
    LOGIN CHECK
---------------------------------- */
+========================================== */
 
 if (
     sessionStorage.getItem("kpvpAdmin")
     !== "loggedIn"
 ) {
 
-    window.location.href = "admin.html";
+    window.location.href =
+        "admin.html";
 
 }
 
 
-/* ---------------------------------
+/* ==========================================
    LOGOUT
---------------------------------- */
+========================================== */
 
 function logout() {
 
-    sessionStorage.removeItem("kpvpAdmin");
+    sessionStorage.removeItem(
+        "kpvpAdmin"
+    );
 
-    window.location.href = "admin.html";
+    window.location.href =
+        "admin.html";
 
 }
 
 
-/* ---------------------------------
-   PHOTO PREVIEW
---------------------------------- */
+/* ==========================================
+   FILE PREVIEW
+========================================== */
 
 const photoInput =
-    document.getElementById("photoInput");
-
-const previewContainer =
-    document.getElementById("previewContainer");
+    document.getElementById(
+        "photoInput"
+    );
 
 
 photoInput.addEventListener(
     "change",
     function () {
 
-        previewContainer.innerHTML = "";
+        const container =
+            document.getElementById(
+                "previewContainer"
+            );
 
-        const files = this.files;
-
-        if (!files.length) return;
+        container.innerHTML = "";
 
 
-        Array.from(files).forEach(
-            function (file) {
+        Array.from(this.files)
+            .forEach(function(file) {
 
                 const reader =
                     new FileReader();
 
+
                 reader.onload =
-                    function (e) {
+                    function(e) {
 
                         const div =
                             document.createElement(
@@ -222,51 +259,43 @@ photoInput.addEventListener(
                             "preview-item";
 
 
-                        const img =
-                            document.createElement(
-                                "img"
-                            );
+                        div.innerHTML = `
 
-                        img.src =
-                            e.target.result;
+                            <img
+                                src="${e.target.result}"
+                            >
 
+                            <p>
+                                ${file.name}
+                            </p>
 
-                        const name =
-                            document.createElement(
-                                "p"
-                            );
-
-                        name.innerText =
-                            file.name;
+                        `;
 
 
-                        div.appendChild(img);
-
-                        div.appendChild(name);
-
-                        previewContainer.appendChild(
+                        container.appendChild(
                             div
                         );
 
                     };
 
+
                 reader.readAsDataURL(file);
 
-            }
-        );
+            });
 
     }
 );
 
 
-/* ---------------------------------
-   UPLOAD
---------------------------------- */
+/* ==========================================
+   UPLOAD PHOTOS
+========================================== */
 
-function uploadPhotos() {
+async function uploadPhotos() {
 
     const files =
         photoInput.files;
+
 
     const message =
         document.getElementById(
@@ -284,116 +313,332 @@ function uploadPhotos() {
     }
 
 
-    /*
-       अभी Demo Mode है।
-
-       अगले step में यहाँ
-       Google Drive / Apps Script
-       upload लगाया जाएगा।
-    */
-
-
     message.innerText =
-        "⏳ Upload system अगले step में connect होगा।";
+        "⏳ Uploading...";
+
+
+    try {
+
+        for (
+            const file of files
+        ) {
+
+            const base64 =
+                await fileToBase64(file);
+
+
+            const payload = {
+
+                action: "upload",
+
+                fileName: file.name,
+
+                mimeType: file.type,
+
+                base64: base64
+
+            };
+
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+
+                        method: "POST",
+
+                        body:
+                            JSON.stringify(
+                                payload
+                            )
+
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (!result.success) {
+
+                throw new Error(
+                    result.message
+                );
+
+            }
+
+        }
+
+
+        message.innerText =
+            "✅ सभी photos successfully upload हो गईं।";
+
+
+        photoInput.value = "";
+
+        document.getElementById(
+            "previewContainer"
+        ).innerHTML = "";
+
+
+        loadPhotos();
+
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+        message.innerText =
+            "❌ Upload failed: "
+            + error.message;
+
+    }
 
 }
 
 
-/* ---------------------------------
-   DEMO PHOTOS
---------------------------------- */
+/* ==========================================
+   FILE → BASE64
+========================================== */
 
-const demoPhotos = [
+function fileToBase64(file) {
 
-    "images/slide1.jpg",
-    "images/slide2.jpg",
-    "images/slide3.jpg",
-    "images/slide4.jpg"
+    return new Promise(
+        function(resolve, reject) {
 
-];
+            const reader =
+                new FileReader();
 
 
-function showPhotos() {
+            reader.onload =
+                function() {
+
+                    const result =
+                        reader.result;
+
+
+                    const base64 =
+                        result.split(",")[1];
+
+
+                    resolve(base64);
+
+                };
+
+
+            reader.onerror =
+                reject;
+
+
+            reader.readAsDataURL(file);
+
+        }
+    );
+
+}
+
+
+/* ==========================================
+   LOAD PHOTOS
+========================================== */
+
+async function loadPhotos() {
 
     const grid =
         document.getElementById(
             "photoGrid"
         );
 
-    grid.innerHTML = "";
+
+    grid.innerHTML =
+        "<p>⏳ Photos loading...</p>";
 
 
-    demoPhotos.forEach(
-        function (photo, index) {
+    try {
 
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-            card.className =
-                "photo-card";
+        const response =
+            await fetch(
+                API_URL
+                + "?action=list"
+            );
 
 
-            card.innerHTML = `
-
-                <img
-                    src="${photo}"
-                    alt="KPVP Photo"
-                >
-
-                <div class="photo-info">
-
-                    <span>
-                        Slide ${index + 1}
-                    </span>
-
-                    <button
-                        onclick="deletePhoto(${index})"
-                        class="delete-btn">
-
-                        🗑 Delete
-
-                    </button>
-
-                </div>
-
-            `;
+        const data =
+            await response.json();
 
 
-            grid.appendChild(card);
+        if (!data.success) {
+
+            throw new Error(
+                data.message
+            );
 
         }
-    );
 
 
-    document.getElementById(
-        "photoCount"
-    ).innerText =
-        demoPhotos.length + " Photos";
+        const photos =
+            data.photos;
+
+
+        document.getElementById(
+            "photoCount"
+        ).innerText =
+            photos.length
+            + " Photos";
+
+
+        grid.innerHTML = "";
+
+
+        if (!photos.length) {
+
+            grid.innerHTML =
+                "<p>कोई photo नहीं है।</p>";
+
+            return;
+
+        }
+
+
+        photos.forEach(
+            function(photo) {
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "photo-card";
+
+
+                card.innerHTML = `
+
+                    <img
+                        src="${photo.url}"
+                        alt="${photo.name}"
+                    >
+
+                    <div class="photo-info">
+
+                        <span>
+                            ${photo.name}
+                        </span>
+
+                        <button
+                            class="delete-btn"
+                            onclick="deletePhoto('${photo.id}')">
+
+                            🗑 Delete
+
+                        </button>
+
+                    </div>
+
+                `;
+
+
+                grid.appendChild(
+                    card
+                );
+
+            }
+        );
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+        grid.innerHTML =
+            "<p>❌ Photos load नहीं हुईं।</p>";
+
+    }
 
 }
 
 
-function deletePhoto(index) {
+/* ==========================================
+   DELETE PHOTO
+========================================== */
+
+async function deletePhoto(fileId) {
 
     const confirmDelete =
         confirm(
-            "क्या आप यह photo delete करना चाहते हैं?"
+            "क्या आप यह photo permanently delete करना चाहते हैं?"
         );
 
 
     if (!confirmDelete) return;
 
 
-    alert(
-        "Photo Delete system अगले step में Google Drive से connect होगा।"
-    );
+    try {
+
+        const response =
+            await fetch(
+                API_URL,
+                {
+
+                    method: "POST",
+
+                    body:
+                        JSON.stringify({
+
+                            action: "delete",
+
+                            fileId: fileId
+
+                        })
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (!result.success) {
+
+            throw new Error(
+                result.message
+            );
+
+        }
+
+
+        alert(
+            "✅ Photo delete हो गई।"
+        );
+
+
+        loadPhotos();
+
+    }
+
+    catch(error) {
+
+        alert(
+            "❌ Delete failed: "
+            + error.message
+        );
+
+    }
 
 }
 
 
-showPhotos();
+/* ==========================================
+   LOAD ON PAGE OPEN
+========================================== */
+
+loadPhotos();
 
 </script>
 
