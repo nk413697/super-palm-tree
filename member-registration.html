@@ -1,48 +1,369 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>KPVP Member Registration</title>
+    <meta charset="UTF-8">
 
-<link rel="stylesheet" href="style.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>KPVP - सदस्य पंजीकरण</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="./css/style.css?v=5">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
 <body>
 
-<div class="form-container">
 
-<h2>सदस्य पंजीकरण</h2>
+<!-- ================= HEADER ================= -->
 
-<form id="memberForm">
+<header class="main-header">
 
-<input type="text" id="name" placeholder="नाम" required>
+    <div class="logo-section">
 
-<input type="text" id="father" placeholder="पिता का नाम" required>
+        <img src="./images/logo.png"
+             class="logo"
+             alt="KPVP Logo">
 
-<input type="text" id="village" placeholder="गांव" required>
+        <div class="logo-text">
 
-<input type="text" id="gotra" placeholder="गोत्र">
+            <h1>कांटा परगना विकास परिषद</h1>
 
-<input type="text" id="mobile" placeholder="मोबाइल नंबर" required>
+            <p>एकता • शिक्षा • प्रगति</p>
 
-<input type="email" id="email" placeholder="ईमेल">
+        </div>
 
-<input type="text" id="profession" placeholder="व्यवसाय">
+    </div>
 
-<button type="submit">Submit</button>
 
-</form>
+    <nav class="main-nav">
 
-<br>
+        <ul>
 
-<a href="index.html" class="btn">Home</a>
+            <li>
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+            </li>
 
-</div>
+            <li>
+                <a href="#">About</a>
+            </li>
 
-<script src="member.js"></script>
+            <li>
+                <a href="member-registration.html"
+                   class="active">
+                    Member Registration
+                </a>
+            </li>
+
+            <li>
+                <a href="#">Pratibha Samman</a>
+            </li>
+
+            <li>
+                <a href="#">Gallery</a>
+            </li>
+
+            <li>
+                <a href="#">Contact</a>
+            </li>
+
+            <li>
+                <a href="admin.html"
+                   class="admin-link">
+
+                    <i class="fa-solid fa-user-shield"></i>
+                    Admin
+
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ================= REGISTRATION ================= -->
+
+<section class="registration-section">
+
+    <div class="registration-container">
+
+
+        <div class="registration-header">
+
+            <div class="registration-icon">
+                <i class="fa-solid fa-user-plus"></i>
+            </div>
+
+            <h2>सदस्य पंजीकरण</h2>
+
+            <p>कांटा परगना विकास परिषद</p>
+
+            <span>
+                कृपया अपनी सही जानकारी भरें
+            </span>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <form id="memberForm">
+
+
+            <div class="form-group">
+
+                <label for="name">
+                    <i class="fa-solid fa-user"></i>
+                    सदस्य का नाम
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="अपना पूरा नाम लिखें"
+                    required>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="father">
+                    <i class="fa-solid fa-user-tie"></i>
+                    पिता का नाम
+                </label>
+
+                <input
+                    type="text"
+                    id="father"
+                    name="father"
+                    placeholder="पिता का पूरा नाम लिखें"
+                    required>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="village">
+                    <i class="fa-solid fa-house"></i>
+                    गांव
+                </label>
+
+                <input
+                    type="text"
+                    id="village"
+                    name="village"
+                    placeholder="अपने गांव का नाम लिखें"
+                    required>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="gotra">
+                    <i class="fa-solid fa-people-group"></i>
+                    गोत्र
+                </label>
+
+                <input
+                    type="text"
+                    id="gotra"
+                    name="gotra"
+                    placeholder="अपना गोत्र लिखें">
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="mobile">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    मोबाइल नंबर
+                </label>
+
+                <input
+                    type="tel"
+                    id="mobile"
+                    name="mobile"
+                    placeholder="10 अंकों का मोबाइल नंबर"
+                    maxlength="10"
+                    inputmode="numeric"
+                    required>
+
+                <small id="mobileError"></small>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    <i class="fa-solid fa-envelope"></i>
+                    ईमेल
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@gmail.com">
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="profession">
+                    <i class="fa-solid fa-briefcase"></i>
+                    व्यवसाय
+                </label>
+
+                <input
+                    type="text"
+                    id="profession"
+                    name="profession"
+                    placeholder="अपना व्यवसाय लिखें">
+
+            </div>
+
+
+
+            <button
+                type="submit"
+                id="submitBtn"
+                class="registration-submit">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                पंजीकरण करें
+
+            </button>
+
+
+        </form>
+
+
+
+        <!-- SUCCESS -->
+
+        <div id="successMessage"
+             class="success-message"
+             style="display:none;">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h3>पंजीकरण सफल!</h3>
+
+            <p>
+                आपका सदस्य पंजीकरण सफलतापूर्वक दर्ज हो गया है।
+            </p>
+
+            <a href="index.html"
+               class="home-btn">
+
+                <i class="fa-solid fa-house"></i>
+                Home पर जाएं
+
+            </a>
+
+        </div>
+
+
+
+        <div class="back-home">
+
+            <a href="index.html">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                वापस Home पर जाएं
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>
+                कांटा परगना विकास परिषद
+            </h3>
+
+            <p>
+                एकता • शिक्षा • प्रगति
+            </p>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <p>
+                <i class="fa-solid fa-phone"></i>
+                9216082769
+            </p>
+
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+                meenasamaj.kpvp@gmail.com
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 KPVP | कांटा परगना विकास परिषद
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="./js/member.js"></script>
+
 
 </body>
+
 </html>
