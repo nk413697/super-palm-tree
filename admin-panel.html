@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>KPVP Admin Panel</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="admin-panel">
+
+        <h1>KPVP Admin Panel</h1>
+
+        <p>
+            कांटा परगना विकास परिषद
+        </p>
+
+        <hr>
+
+        <div class="admin-menu">
+
+            <button>
+                सदस्य प्रबंधन
+            </button>
+
+            <button>
+                प्रतिभा सम्मान आवेदन
+            </button>
+
+            <button>
+                प्रमाण पत्र
+            </button>
+
+            <button>
+                फोटो / Slider
+            </button>
+
+            <button>
+                वेबसाइट सामग्री
+            </button>
+
+        </div>
+
+        <button
+            onclick="logout()"
+            class="logout-btn">
+            Logout
+        </button>
+
+    </div>
+
+    <script>
+
+        if (
+            sessionStorage.getItem("kpvpAdmin")
+            !== "loggedIn"
+        ) {
+            window.location.href = "admin.html";
+        }
+
+        function logout() {
+
+            sessionStorage.removeItem("kpvpAdmin");
+
+            window.location.href =
+                "admin.html";
+        }
+
+    </script>
+
+</body>
+
+</html>
